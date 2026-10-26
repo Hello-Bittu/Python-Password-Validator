@@ -1,28 +1,25 @@
-# Project Name: Password Strength Validator
-
 print("\n" + "=" * 45)
 print("--- Welcome to Password Strength Validator ---")
 print("=" * 45)
 print("\nA strong password needs: 8+ characters,\nuppercase, lowercase, numbers, and symbols.\n")
 
-
 while True:
-    password = input("\nEnter your password (or type 'quit' to exist): ")
+    password = input("\nEnter your password (or type 'quit' to exit): ")
 
     if password.lower() == 'quit':
-        print("You are exist the password validator.\nThank you so much for using our services.")
+        print("You are exiting the password validator.\nThank you so much for using our services.")
         break
 
-    # Make some variable to check password conditions
+    # Make variables to check password conditions
     has_length = False
     has_upper = False
     has_lower = False
     has_digit = False
     has_special = False
 
-    # Now we check lenght using string functions
+    # Now we check length using string functions
     if len(password) >= 8:
-        has_digit = True
+        has_length = True  
 
     # Now we check each character line by line
     for chr in password: # Chr means: Character
@@ -44,12 +41,12 @@ while True:
 
     # Output the result
     print("\nResult:")
-    print(f"Evaluatig: '{password}'")
+    print(f"Evaluating: '{password}'")
 
     match score:
         case 5:
-            print("Strong Passowrd: No Needs to improvement!")
+            print("Strong Password: No need for improvement!")
         case 3 | 4:
-            print("Moderate Password: little needs improvement!")
+            print("Moderate Password: A little improvement needed!")
         case _:
             print("Weak Password: Your password is very simple!")
